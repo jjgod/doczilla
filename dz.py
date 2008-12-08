@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-"""Doczilla: A documentation generator based on Apple documentation style."""
+"""DocZilla: A documentation generator based on Apple documentation style."""
 
 import os, sys, markdown2, tenjin
 from tenjin.helpers import *
