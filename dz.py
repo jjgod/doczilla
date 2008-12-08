@@ -7,7 +7,7 @@ from tenjin.helpers import *
 
 (GET_TITLE, GET_OVERVIEW, GET_NAME, GET_ATTR, GET_FUNC, GET_DESC) = range(6)
 
-engine      = tenjin.Engine()
+engine      = tenjin.Engine(encoding="utf-8")
 markdowner  = markdown2.Markdown()
 title       = ""
 overview    = ""
@@ -73,7 +73,7 @@ if entry:
     entries.append(entry)
 
 context = { "title": title, "overview": overview, "entries": entries }
-fout.write(engine.render("%s/template.pyhtml" % sys.path[0], context))
+fout.write(engine.render("%s/template.pyhtml" % sys.path[0], context).encode("utf-8"))
 
 if not os.path.isfile("style.css"):
     os.system("cp -f %s/style.css style.css" % sys.path[0])
