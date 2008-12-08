@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+
+    <title>#{title}</title>
+</head>
+    
+<body>
+<div id="bodyText">
+    <h1>${title}</h1>
+    #{overview}
+    <h2>Index</h2>
+    <ul class="tooltip">
+<?py for ent in entries: ?>
+    <li><code><a href="#${ent["name"]}">${ent["name"]}</a></code></li>
+<?py #end ?>
+    </ul>
+
+    <h2>Functions</h2>
+
+<?py for ent in entries: ?>
+    <h3 id="${ent["name"]}">${ent["name"]}</h3>
+    #{ent["desc"]}
+    <p><code>${ent["func"]}</code></p>
+    <h5>Declared In</h5>
+    <code>${ent["in"]}</code>
+
+<?py #end ?>
+</div>
+</body>
+</html>
+
