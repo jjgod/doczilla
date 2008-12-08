@@ -22,9 +22,18 @@
 
 <?py for ent in entries: ?>
     <h3 id="${ent["name"]}">${ent["name"]}</h3>
-    #{ent["desc"]}
+    #{ent["synopsis"]}
     <p><code>${ent["func"]}</code></p>
-    <h5>Declared In</h5>
+    #{ent["discussion"]}
+    <?py if "sa" in ent: ?>
+    <h5 class="tight">See Also</h5>
+    <ul class="availability">
+        <?py for item in ent["sa"]: ?>
+        <li><code><a href="#${item}">${item}</a></code></li>
+        <?py #end ?>
+    </ul>
+    <?py #end ?>
+    <h5 class="tight">Declared In</h5>
     <code>${ent["in"]}</code>
 
 <?py #end ?>
